@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [user, setLoginUser] = useState({});
 
-  const name = user.name;
+  //const name = user.name;
 
   useEffect(() => {
     setLoginUser(JSON.parse(localStorage.getItem("MyUser")));
@@ -17,7 +17,7 @@ function App() {
   const updateUser = (user) => {
     localStorage.setItem("MyUser", JSON.stringify(user));
     setLoginUser(user);
-    console.log(user.name);
+    //console.log(user.name);
   };
   return (
     <div className="App">
@@ -25,7 +25,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             {user && user._id ? (
-              <Homepage updateUser={updateUser} name={name} />
+              <Homepage updateUser={updateUser} />
             ) : (
               <Login updateUser={updateUser} />
             )}
